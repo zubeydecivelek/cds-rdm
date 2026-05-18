@@ -24,6 +24,12 @@ CERN_CUSTOM_FIELDS = [
         dump_options=True,
         multiple=True,
     ),
+    VocabularyCF(
+        name="cern:committees",
+        vocabulary_id="committees",
+        dump_options=True,
+        multiple=True,
+    ),
     KeywordCF(name="cern:administrative_unit"),
     VocabularyCF(
         name="cern:accelerators",
@@ -54,7 +60,7 @@ CERN_CUSTOM_FIELDS_UI = {
     "fields": [
         dict(
             field="cern:departments",
-            ui_widget="Dropdown",
+            ui_widget="DepartmentDropdown",
             landing_page_search_attr="id",
             display_url="https://scientific-info.cern/archives/history_CERN/internal_organisation/20s",
             props=dict(
@@ -69,12 +75,27 @@ CERN_CUSTOM_FIELDS_UI = {
             ),
         ),
         dict(
+            field="cern:committees",
+            ui_widget="Dropdown",
+            landing_page_search_attr="id",
+            props=dict(
+                label="Committee",
+                icon="users",
+                description="Please select a CERN Research Committee related to this record if applicable.",
+                search=True,
+                multiple=True,
+                sort_by="title_sort",
+                clearable=True,
+                autocompleteFrom="/api/vocabularies/committees",
+            ),
+        ),
+        dict(
             field="cern:administrative_unit",
             ui_widget="Input",
             props=dict(
                 label="Administrative Unit",
                 icon="clipboard",
-                description="Optionally provide the detailed administrative unit: group-section.",
+                description="Optionally provide the detailed administrative unit: group-section if applicable",
                 sort_by="title_sort",
                 clearable=True,
             ),

@@ -18,7 +18,10 @@ from cds_rdm.custom_fields.meeting import (
     MEETING_CUSTOM_FIELDS_UI,
     MEETING_NAMESPACE,
 )
-from cds_rdm.custom_fields.publishing import PUBLISHING_FIELDS_UI
+from cds_rdm.custom_fields.publishing import (
+    PUBLISHING_CUSTOM_FIELDS,
+    PUBLISHING_FIELDS_UI,
+)
 
 NAMESPACES = {
     "cern": "https://greybook.cern.ch/",
@@ -31,6 +34,7 @@ NAMESPACES = {
 
 CUSTOM_FIELDS = [
     *CERN_CUSTOM_FIELDS,
+    *PUBLISHING_CUSTOM_FIELDS,
     # journal
     *JOURNAL_CUSTOM_FIELDS,
     # imprint
